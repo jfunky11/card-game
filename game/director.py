@@ -1,4 +1,4 @@
-from game.card import Die
+from game.card import Card
 
 
 class Director:
@@ -10,7 +10,7 @@ class Director:
         self.is_playing = True
         self.score = 300
         guess = ''
-        card = Die()
+        card = Card()
         card.roll()
 
 
@@ -25,15 +25,15 @@ class Director:
 
     def get_inputs(self):
 
-        card = Die()
+        card = Card()
         card.roll()
         print(f'The card is: {card.value}')
-        guess = input('is the dice higher or lower?')
-        
+        guess = input('Is the dice higher or lower? [h/l] ')
+
        
     def play_again(self):
-        roll_dice = input("play again? [y/n] ")
-        self.is_playing = (roll_dice == "y")
+        roll_card = input("play again? [y/n] ")
+        self.is_playing = (roll_card == "y")
 
 
     def do_updates(self):
@@ -41,7 +41,7 @@ class Director:
         if not self.is_playing:
             return
 
-        card = Die()
+        card = Card()
         card.roll()
         self.score += card.points
 
@@ -51,7 +51,7 @@ class Director:
         if not self.is_playing:
             return
 
-        card= Die()
+        card= Card()
         card.roll()
         
         print(f'Next card was: {card.value}')
