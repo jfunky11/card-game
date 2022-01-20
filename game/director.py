@@ -28,7 +28,7 @@ class Director:
         card = Card()
         card.roll()
         print(f'The card is: {card.value}')
-        guess = input('Is the dice higher or lower? [h/l] ')
+        guess = input('Is the card higher or lower? [h/l] ')
 
        
     def play_again(self):
