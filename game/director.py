@@ -1,4 +1,4 @@
-from game.dice import Die
+from game.card import Die
 
 
 class Director:
@@ -6,14 +6,13 @@ class Director:
 
     def __init__(self):
 
-        self.dice = 0
+        self.card = 0
         self.is_playing = True
-        self.score = 0
-        self.total_score = 300
+        self.score = 300
+        guess = ''
+        card = Die()
+        card.roll()
 
-        ##for i in range(5):
-        die = Die()
-        self.dice.append(die)
 
     def start_game(self):
 
@@ -23,9 +22,14 @@ class Director:
             self.do_outputs()
             self.play_again()
 
+
     def get_inputs(self):
 
+        card = Die()
+        card.roll()
+        print(f'The card is: {card.value}')
         guess = input('is the dice higher or lower?')
+        
        
     def play_again(self):
         roll_dice = input("play again? [y/n] ")
@@ -35,24 +39,21 @@ class Director:
     def do_updates(self):
 
         if not self.is_playing:
-            return 
+            return
 
-        for i in range(len(self.dice)):
-            die = self.dice[i]
-            die.roll()
-            self.score += die.points 
-        self.total_score += self.score
+        card = Die()
+        card.roll()
+        self.score += card.points
+
 
     def do_outputs(self):
 
         if not self.is_playing:
             return
-        
-        values = ""
-        for i in range(len(self.dice)):
-            die = self.dice[i]
-            values += f"{die.value} "
 
-        print(f"Your next dice : {values}")
-        print(f"Your score is: {self.total_score}\n")
+        card= Die()
+        card.roll()
+        
+        print(f'Next card was: {card.value}')
+        print(f'Your score is: {self.score}')
         self.is_playing == (self.score > 0)
