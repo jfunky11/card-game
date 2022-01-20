@@ -14,21 +14,24 @@ class Card:
         value (int): The card value.
         points (int): The number of points the card is worth.
     """
+    pass
 
 # 2) Create the class constructor. Use the following method comment.
 
 
-        """Constructs a new instance of Card with a value and points attribute.
+    """Constructs a new instance of Card with a value and points attribute.
 
-        Args:
-            self (Card): An instance of Card.
-        """
+    Args:
+        self (Card): An instance of Card.
+    """
+    pass
     
 # 3) Create the roll(self) method. Use the following method comment.
 
     
-        """Generates a new random value and calculates the points.
-        
-        Args:
-            self (Card): An instance of Card.
-        """
+    """Generates a new random value and calculates the points.
+    
+    Args:
+        self (Card): An instance of Card.
+    """
+    pass
