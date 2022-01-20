@@ -31,7 +31,7 @@ class Die:
 # 3) Create the roll(self) method. Use the following method comment.
 
     def roll(self):
-        self.value = random.randint(1,6)
+        self.value = random.randint(1,13)
         if self.value == 1:
             self.points = 100
         elif self.value == 5:
