@@ -14,7 +14,8 @@ class Card:
         value (int): The card value.
         points (int): The number of points the card is worth.
     """
-    pass
+    
+
 
 # 2) Create the class constructor. Use the following method comment.
 
@@ -24,8 +25,9 @@ class Card:
     Args:
         self (Card): An instance of Card.
     """
-    pass
-    
+    def __init__(self):
+        self.value = int()
+        self.points = int()
 # 3) Create the roll(self) method. Use the following method comment.
 
     
@@ -34,4 +36,16 @@ class Card:
     Args:
         self (Card): An instance of Card.
     """
-    pass
+    def scoring(self, previous_card, guess):
+
+        self.value = random.randint(1,13)
+        if (guess == 'h' and self.value > previous_card) or (guess == 'l' and self.value < previous_card):
+            self.points = 100
+        elif (guess == 'h' and self.value < previous_card) or (guess == 'l' and self.value > previous_card):
+            self.points = -75
+        elif self.value == previous_card:
+            self.points = 0
+        
+
+    def roll(self):
+        self.value = random.randint(1,13)
