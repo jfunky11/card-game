@@ -20,6 +20,7 @@ class Director:
             self.do_updates()
             self.do_outputs()
             self.play_again()
+        self.game_over()
 
 
     def get_inputs(self):
@@ -64,3 +65,6 @@ class Director:
         roll_card = input("Play again? [y/n] ")
         print()
         self.is_playing = (roll_card == "y")
+    
+    def game_over(self):
+        print('Game Over')
