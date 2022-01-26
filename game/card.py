@@ -38,7 +38,7 @@ class Card:
     """
     def scoring(self, previous_card, guess):
 
-        self.value = random.randint(1,13)
+        self.value = random.randint(2,14)
         if (guess == 'h' and self.value > previous_card) or (guess == 'l' and self.value < previous_card):
             self.points = 100
         elif (guess == 'h' and self.value < previous_card) or (guess == 'l' and self.value > previous_card):
@@ -48,4 +48,16 @@ class Card:
         
 
     def roll(self):
-        self.value = random.randint(1,13)
+        self.value = random.randint(2,14)
+
+    def card_display(self, card_number):
+        if card_number == 14:
+            return 'Ace'
+        elif card_number == 11:
+            return 'Jack'
+        elif card_number == 12:
+            return 'Queen'
+        elif card_number == 13:
+            return 'King'
+        else:
+            return str(card_number)

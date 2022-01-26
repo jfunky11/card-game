@@ -26,8 +26,10 @@ class Director:
 
         card = Card()
         card.roll()
-        print(f'The card is: {card.value}')
+        card_string = card.card_display(card.value)
+        print(f'The card is a {card_string}')
         self.guess = input('Is the card higher or lower? [h/l] ').lower()
+        print()
         self.current_card = card.value
 
 
@@ -47,7 +49,9 @@ class Director:
         if not self.is_playing:
             return
 
-        print(f'Next card was: {self.current_card}')
+        card = Card()
+        card_string = card.card_display(self.current_card)
+        print(f'Next card is a {card_string}')
         print(f'Your score is: {self.score}')
         self.is_playing = (self.score > 0)
 
