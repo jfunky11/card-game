@@ -9,9 +9,8 @@ class Director:
         self.card = 0
         self.is_playing = True
         self.score = 300
-        guess = ''
-        card = Card()
-        card.roll()
+        self.guess = ''
+        self.current_card = 0
 
 
     def start_game(self):
@@ -28,12 +27,8 @@ class Director:
         card = Card()
         card.roll()
         print(f'The card is: {card.value}')
-        guess = input('Is the card higher or lower? [h/l] ')
-
-       
-    def play_again(self):
-        roll_card = input("play again? [y/n] ")
-        self.is_playing = (roll_card == "y")
+        self.guess = input('Is the card higher or lower? [h/l] ').lower()
+        self.current_card = card.value
 
 
     def do_updates(self):
@@ -42,8 +37,9 @@ class Director:
             return
 
         card = Card()
-        card.roll()
+        card.scoring(self.current_card, self.guess)
         self.score += card.points
+        self.current_card = card.value
 
 
     def do_outputs(self):
@@ -51,9 +47,16 @@ class Director:
         if not self.is_playing:
             return
 
-        card= Card()
-        card.roll()
-        
-        print(f'Next card was: {card.value}')
+        print(f'Next card was: {self.current_card}')
         print(f'Your score is: {self.score}')
-        self.is_playing == (self.score > 0)
+        self.is_playing = (self.score > 0)
+
+    
+    def play_again(self):
+
+        if not self.is_playing:
+            return
+
+        roll_card = input("Play again? [y/n] ")
+        print()
+        self.is_playing = (roll_card == "y")
